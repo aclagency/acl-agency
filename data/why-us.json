@@ -1,0 +1,23 @@
+{
+  "sectionLabel": "Why Choose ACL",
+  "headline": "Your success is our business.",
+  "description": "Since 2016, ACL Agency has been the trusted partner for transporters across Malaysia — handling the complexity of fleet compliance so you can focus on running your business.",
+  "bulletPoints": [
+    "Dedicated account support — we act as your in-house fleet admin",
+    "Proactive renewal reminders so you never miss a deadline",
+    "Direct liaison with JPJ, APAD, Puspakom, and insurers",
+    "Transparent, competitive pricing with no hidden fees",
+    "Emergency support for accidents and claims"
+  ],
+  "coreValues": [
+    { "label": "Efficiency", "desc": "Fast without compromise" },
+    { "label": "Value", "desc": "Competitive, quality-driven" },
+    { "label": "Professionalism", "desc": "Reliable & transparent" }
+  ],
+  "stats": [
+    { "value": "10+", "label": "Years in Industry" },
+    { "value": "13", "label": "Insurance Partners" },
+    { "value": "100%", "label": "Renewal On-Time Rate" },
+    { "value": "1-Stop", "label": "All Services, One Place" }
+  ]
+}

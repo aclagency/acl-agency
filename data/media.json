@@ -1,0 +1,21 @@
+{
+  "images": [
+    {
+      "id": "1779509969622",
+      "name": "ACL AGENCY M SDN BHD-1.jpg",
+      "url": "/uploads/cms/1779509969621-ACL-AGENCY-M-SDN-BHD-1.jpg",
+      "type": "image/jpeg",
+      "size": 54256,
+      "uploadedAt": "2026-05-23T04:19:29.622Z"
+    },
+    {
+      "id": "1779511217798",
+      "name": "ACL AGENCY M SDN BHD.jpg",
+      "url": "/uploads/cms/1779511217791-ACL-AGENCY-M-SDN-BHD.jpg",
+      "type": "image/jpeg",
+      "size": 44962,
+      "uploadedAt": "2026-05-23T04:40:17.798Z"
+    }
+  ],
+  "icons": []
+}

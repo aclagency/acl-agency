@@ -1,0 +1,57 @@
+{
+  "sectionLabel": "Our Services",
+  "heading": "Everything your fleet needs, under one roof.",
+  "subheading": "We handle the paperwork, compliance, and coordination — so you never miss a deadline.",
+  "partnersLabel": "Trusted insurance partners",
+  "partners": ["Generali", "Great Eastern", "CHUBB", "MSIG", "Pacific", "RHB", "Lonpac", "Etiqa Takaful", "P&O Insurance", "AIG", "AmGeneral", "Liberty Insurance"],
+  "items": [
+    {
+      "id": "jpj",
+      "icon": "document-text",
+      "title": "JPJ Services",
+      "description": "Road tax renewal, vehicle registration, ownership transfers, permits, driving licences, and summon management — all handled directly with JPJ on your behalf.",
+      "tags": ["Road Tax", "Registration", "Ownership Transfer", "Permits", "Summons"],
+      "order": 1
+    },
+    {
+      "id": "apad",
+      "icon": "truck",
+      "title": "APAD Services",
+      "description": "Full assistance with land public transport licensing — new permit applications, renewals, condition changes, age limit extensions, and regulatory appeals.",
+      "tags": ["New Applications", "Renewals", "Condition Changes", "Age Limit", "Appeals"],
+      "order": 2
+    },
+    {
+      "id": "insurance",
+      "icon": "shield-check",
+      "title": "Insurance",
+      "description": "Tailored insurance solutions across 13 major partners — motor, commercial vehicle, personal accident, travel, marine, and home & building coverage.",
+      "tags": ["Motor", "Commercial", "Personal Accident", "Marine", "Travel", "Home"],
+      "order": 3
+    },
+    {
+      "id": "puspakom",
+      "icon": "wrench-screwdriver",
+      "title": "Puspakom Inspection",
+      "description": "Vehicle inspection coordination to ensure your fleet meets safety and environmental standards — including certification for registration, renewal, and compliance.",
+      "tags": ["Safety Inspection", "Certification", "Renewal", "Compliance"],
+      "order": 4
+    },
+    {
+      "id": "gps",
+      "icon": "map-pin",
+      "title": "GPS Fleet Tracking",
+      "description": "Enhance fleet security and streamline logistics with real-time GPS tracking — monitor routes, fuel efficiency, and meet commercial vehicle regulatory requirements.",
+      "tags": ["Real-Time Tracking", "Route Monitoring", "Fuel Efficiency", "Compliance"],
+      "order": 5
+    },
+    {
+      "id": "consulting",
+      "icon": "clipboard-document-list",
+      "title": "Consulting & Management",
+      "description": "Strategic fleet consulting for transporters — permit strategy, regulatory navigation, operational planning, and cost optimisation across your entire fleet.",
+      "tags": ["Permit Strategy", "Regulatory Advice", "Cost Optimisation", "Fleet Planning"],
+      "order": 6
+    }
+  ]
+}

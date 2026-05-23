@@ -1,0 +1,36 @@
+{
+  "logoUrl": "/uploads/cms/1779511217791-ACL-AGENCY-M-SDN-BHD.jpg",
+  "companyName": "ACL Agency (M) Sdn. Bhd.",
+  "companyShort": "ACL Agency (M)",
+  "companySuffix": "Sdn. Bhd.",
+  "logoText": "ACL",
+  "regNumber": "202301042466 (1536383-K)",
+  "tagline": "Your Success, Our Business",
+  "established": "2016",
+  "description": "Your one-stop partner for seamless commercial vehicle management across Peninsular Malaysia.",
+  "clientPortal": "https://network.aclagency.com.my",
+  "metaTitle": "ACL Agency (M) Sdn. Bhd. | Commercial Vehicle Management",
+  "metaDescription": "Your one-stop partner for seamless commercial vehicle management. Fleet registration, road tax, insurance, JPJ services and more.",
+  "navLinks": [
+    {
+      "label": "Services",
+      "href": "#services"
+    },
+    {
+      "label": "Why Us",
+      "href": "#why-us"
+    },
+    {
+      "label": "Reviews",
+      "href": "#reviews"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
+  ],
+  "navCTA": {
+    "text": "Get Started",
+    "href": "#contact"
+  }
+}

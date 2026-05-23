@@ -1,0 +1,30 @@
+{
+  "sectionLabel": "Client Reviews",
+  "heading": "Trusted by transporters across Malaysia.",
+  "items": [
+    {
+      "id": "t1",
+      "name": "Ahmad Razif bin Ismail",
+      "title": "Fleet Manager, Razif Transport Sdn. Bhd.",
+      "body": "ACL Agency has been managing our fleet of 40 lorries for the past 5 years. Road tax renewals, insurance, JPJ permits — everything is handled on time, every time. Truly a reliable partner.",
+      "rating": 5,
+      "order": 1
+    },
+    {
+      "id": "t2",
+      "name": "Lee Chong Weng",
+      "title": "Operations Director, Weng Tat Logistics",
+      "body": "Switching to ACL was the best decision we made for our operations. They took over all our vehicle compliance work and we haven't missed a single renewal since. Their team is professional and responsive.",
+      "rating": 5,
+      "order": 2
+    },
+    {
+      "id": "t3",
+      "name": "Siti Nurhaliza binti Daud",
+      "title": "Owner, Daud Brothers Transport",
+      "body": "As a small transporter with 12 trucks, we couldn't afford a full-time admin. ACL gave us enterprise-level fleet management at a very reasonable cost. Highly recommended for all transporters.",
+      "rating": 5,
+      "order": 3
+    }
+  ]
+}

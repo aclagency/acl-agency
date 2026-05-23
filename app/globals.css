@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-navy: #0A2342;
+  --color-navy-light: #1A3A5C;
+  --color-navy-subtle: #EEF2F7;
+  --color-apple-gray: #F5F5F7;
+  --color-text-primary: #1D1D1F;
+  --color-text-secondary: #6E6E73;
+  --color-border: #D2D2D7;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #1D1D1F;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dark body {
+  background: #0F172A;
+  color: #F1F5F9;
+}
