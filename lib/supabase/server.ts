@@ -1,10 +1,9 @@
 import "server-only";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
-import type { Database } from "./types";
 
-let _client: SupabaseClient<Database> | null = null;
+let _client: SupabaseClient | null = null;
 
-export function getSupabaseAdmin(): SupabaseClient<Database> {
+export function getSupabaseAdmin(): SupabaseClient {
   if (_client) return _client;
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -13,7 +12,7 @@ export function getSupabaseAdmin(): SupabaseClient<Database> {
   if (!url) throw new Error("Missing env: NEXT_PUBLIC_SUPABASE_URL");
   if (!serviceKey) throw new Error("Missing env: SUPABASE_SERVICE_ROLE_KEY");
 
-  _client = createClient<Database>(url, serviceKey, {
+  _client = createClient(url, serviceKey, {
     auth: { persistSession: false, autoRefreshToken: false },
   });
   return _client;

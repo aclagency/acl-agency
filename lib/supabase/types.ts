@@ -60,29 +60,13 @@ export interface ActivityLogEntry {
   at: string;
 }
 
-type CustomerInsert =
-  Omit<Customer, "id" | "created_at" | "updated_at">
-  & Partial<Pick<Customer, "id">>;
-
-type VehicleInsert =
-  Omit<Vehicle, "id" | "created_at" | "updated_at">
-  & Partial<Pick<Vehicle, "id">>;
-
-type RenewalInsert =
-  Omit<Renewal, "id" | "created_at" | "updated_at" | "last_action_at">
-  & Partial<Pick<Renewal, "id" | "last_action_at">>;
-
-type ActivityLogInsert =
-  Omit<ActivityLogEntry, "id" | "at">
-  & Partial<Pick<ActivityLogEntry, "id" | "at">>;
-
 export interface Database {
   public: {
     Tables: {
-      customers:    { Row: Customer;         Insert: CustomerInsert;    Update: Partial<Customer> };
-      vehicles:     { Row: Vehicle;          Insert: VehicleInsert;     Update: Partial<Vehicle> };
-      renewals:     { Row: Renewal;          Insert: RenewalInsert;     Update: Partial<Renewal> };
-      activity_log: { Row: ActivityLogEntry; Insert: ActivityLogInsert; Update: Partial<ActivityLogEntry> };
+      customers:    { Row: Customer;         Insert: Partial<Customer> & { company_name: string };    Update: Partial<Customer> };
+      vehicles:     { Row: Vehicle;          Insert: Partial<Vehicle> & { customer_id: string; plate_no: string };     Update: Partial<Vehicle> };
+      renewals:     { Row: Renewal;          Insert: Partial<Renewal> & { vehicle_id: string; kind: RenewalKind; due_date: string };     Update: Partial<Renewal> };
+      activity_log: { Row: ActivityLogEntry; Insert: Partial<ActivityLogEntry> & { renewal_id: string }; Update: Partial<ActivityLogEntry> };
     };
   };
 }
