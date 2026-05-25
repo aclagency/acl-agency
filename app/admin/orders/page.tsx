@@ -35,12 +35,35 @@ export default async function OrdersPage() {
 
   return (
     <div className="p-8 max-w-3xl">
-      <div className="flex items-baseline justify-between mb-6">
+      <div className="flex items-baseline justify-between mb-6 gap-4 flex-wrap">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 mb-1">今日订单</h1>
           <p className="text-sm text-gray-500">
             今天 <b>{todayCount}</b> 单 · 待处理 <b>{pendingTotal}</b> 单
           </p>
+        </div>
+        <div className="flex gap-2">
+          <a
+            href="/api/admin/orders/export?scope=today"
+            className="text-xs font-medium px-3 py-2 rounded-lg bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+            download
+          >
+            📥 今天 Excel
+          </a>
+          <a
+            href="/api/admin/orders/export?scope=week"
+            className="text-xs font-medium px-3 py-2 rounded-lg bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+            download
+          >
+            📥 本周 Excel
+          </a>
+          <a
+            href="/api/admin/orders/export?scope=all"
+            className="text-xs font-medium px-3 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-colors"
+            download
+          >
+            📥 全部 Excel
+          </a>
         </div>
       </div>
 
