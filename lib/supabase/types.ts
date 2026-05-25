@@ -60,6 +60,21 @@ export interface ActivityLogEntry {
   at: string;
 }
 
+export type OrderKind = "insurance" | "road_tax" | "puspakom" | "permit";
+export type OrderStatus = "pending" | "done";
+
+export interface IncomingOrder {
+  id: string;
+  created_at: string;
+  company_name: string;
+  plate_no: string;
+  kind: OrderKind;
+  pic_name: string | null;
+  notes: string | null;
+  status: OrderStatus;
+  done_at: string | null;
+}
+
 export interface Database {
   public: {
     Tables: {
@@ -67,6 +82,7 @@ export interface Database {
       vehicles:     { Row: Vehicle;          Insert: Partial<Vehicle> & { customer_id: string; plate_no: string };     Update: Partial<Vehicle> };
       renewals:     { Row: Renewal;          Insert: Partial<Renewal> & { vehicle_id: string; kind: RenewalKind; due_date: string };     Update: Partial<Renewal> };
       activity_log: { Row: ActivityLogEntry; Insert: Partial<ActivityLogEntry> & { renewal_id: string }; Update: Partial<ActivityLogEntry> };
+      incoming_orders: { Row: IncomingOrder; Insert: Partial<IncomingOrder> & { company_name: string; plate_no: string; kind: OrderKind }; Update: Partial<IncomingOrder> };
     };
   };
 }
