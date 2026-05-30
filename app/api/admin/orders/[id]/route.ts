@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
+import { syncOrdersToSheetAsync } from "@/lib/orders/sheets";
 import type { OrderStatus } from "@/lib/supabase/types";
 
 const AUTH_TOKEN = "acl-cms-v1";
@@ -33,6 +34,7 @@ export async function PATCH(
     .update({ status, done_at: status === "done" ? new Date().toISOString() : null })
     .eq("id", id);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  syncOrdersToSheetAsync();
   return NextResponse.json({ ok: true });
 }
 
@@ -47,6 +49,7 @@ export async function DELETE(
   const sb = getSupabaseAdmin();
   const { error } = await sb.from("incoming_orders").delete().eq("id", id);
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  syncOrdersToSheetAsync();
   return NextResponse.json({ ok: true });
 }
 

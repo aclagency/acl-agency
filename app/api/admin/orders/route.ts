@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { getSupabaseAdmin } from "@/lib/supabase/server";
+import { syncOrdersToSheetAsync } from "@/lib/orders/sheets";
 import type { OrderKind } from "@/lib/supabase/types";
 
 const AUTH_TOKEN = "acl-cms-v1";
@@ -33,6 +34,7 @@ export async function POST(req: NextRequest) {
     .single();
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
+  syncOrdersToSheetAsync();
   return NextResponse.json({ ok: true, order: data });
 }
 
