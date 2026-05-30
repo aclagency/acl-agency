@@ -90,6 +90,7 @@ async function applyFormatting(sheets: SheetsClient, spreadsheetId: string): Pro
   const sheet0 = meta.data.sheets?.[0];
   const sheetGid = sheet0?.properties?.sheetId ?? 0;
   const existingRulesCount = sheet0?.conditionalFormats?.length ?? 0;
+  const existingBandings = sheet0?.bandedRanges ?? [];
 
   type Request = Record<string, unknown>;
   const requests: Request[] = [];
@@ -97,6 +98,13 @@ async function applyFormatting(sheets: SheetsClient, spreadsheetId: string): Pro
   // 1) Delete existing conditional formatting rules (reverse order so indices stay valid)
   for (let i = existingRulesCount - 1; i >= 0; i--) {
     requests.push({ deleteConditionalFormatRule: { sheetId: sheetGid, index: i } });
+  }
+
+  // 1b) Delete existing bandings so we can recreate (avoids overlap error)
+  for (const b of existingBandings) {
+    if (b.bandedRangeId !== undefined && b.bandedRangeId !== null) {
+      requests.push({ deleteBanding: { bandedRangeId: b.bandedRangeId } });
+    }
   }
 
   // 2) Freeze the header row
@@ -164,7 +172,60 @@ async function applyFormatting(sheets: SheetsClient, spreadsheetId: string): Pro
     });
   }
 
-  // 6) Auto-resize all 8 columns to fit content
+  // 6) Data validation: dropdown chips for 类型 (E) column
+  requests.push({
+    setDataValidation: {
+      range: { sheetId: sheetGid, startRowIndex: 1, endRowIndex: 5000, startColumnIndex: 4, endColumnIndex: 5 },
+      rule: {
+        condition: {
+          type: "ONE_OF_LIST",
+          values: [
+            { userEnteredValue: "保险" },
+            { userEnteredValue: "JPJ路税" },
+            { userEnteredValue: "Puspakom" },
+            { userEnteredValue: "APAD" },
+            { userEnteredValue: "AUDIT ICOP" },
+          ],
+        },
+        showCustomUi: true,
+        strict: false,
+      },
+    },
+  });
+
+  // 7) Data validation: dropdown chips for 状态 (H) column
+  requests.push({
+    setDataValidation: {
+      range: { sheetId: sheetGid, startRowIndex: 1, endRowIndex: 5000, startColumnIndex: 7, endColumnIndex: 8 },
+      rule: {
+        condition: {
+          type: "ONE_OF_LIST",
+          values: [
+            { userEnteredValue: "待处理" },
+            { userEnteredValue: "已完成" },
+          ],
+        },
+        showCustomUi: true,
+        strict: false,
+      },
+    },
+  });
+
+  // 8) Banded rows (alternating row colors) for readability
+  requests.push({
+    addBanding: {
+      bandedRange: {
+        range: { sheetId: sheetGid, startRowIndex: 0, endRowIndex: 5000, startColumnIndex: 0, endColumnIndex: 8 },
+        rowProperties: {
+          headerColor: { red: 0.04, green: 0.14, blue: 0.26 },
+          firstBandColor: { red: 1, green: 1, blue: 1 },
+          secondBandColor: { red: 0.97, green: 0.97, blue: 0.99 },
+        },
+      },
+    },
+  });
+
+  // 9) Auto-resize all 8 columns to fit content
   requests.push({
     autoResizeDimensions: {
       dimensions: { sheetId: sheetGid, dimension: "COLUMNS", startIndex: 0, endIndex: 8 },
