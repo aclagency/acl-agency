@@ -5,10 +5,11 @@ import { useRouter } from "next/navigation";
 import type { OrderKind } from "@/lib/supabase/types";
 
 const KIND_OPTIONS: Array<{ value: OrderKind; label: string; color: string }> = [
-  { value: "insurance", label: "保险",     color: "bg-blue-600 hover:bg-blue-700" },
-  { value: "road_tax",  label: "JPJ路税",  color: "bg-green-600 hover:bg-green-700" },
-  { value: "puspakom",  label: "Puspakom", color: "bg-yellow-600 hover:bg-yellow-700" },
-  { value: "permit",    label: "APAD",     color: "bg-purple-600 hover:bg-purple-700" },
+  { value: "insurance",  label: "保险",       color: "bg-blue-600 hover:bg-blue-700" },
+  { value: "road_tax",   label: "JPJ路税",    color: "bg-green-600 hover:bg-green-700" },
+  { value: "puspakom",   label: "Puspakom",   color: "bg-yellow-600 hover:bg-yellow-700" },
+  { value: "permit",     label: "APAD",       color: "bg-purple-600 hover:bg-purple-700" },
+  { value: "audit_icop", label: "AUDIT ICOP", color: "bg-red-600 hover:bg-red-700" },
 ];
 
 export default function NewOrderForm() {
@@ -91,7 +92,7 @@ export default function NewOrderForm() {
 
       <div>
         <label className="block text-xs font-medium text-gray-700 mb-2">类型 *</label>
-        <div className="grid grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
           {KIND_OPTIONS.map((opt) => (
             <button
               key={opt.value}

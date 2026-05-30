@@ -60,7 +60,7 @@ export interface ActivityLogEntry {
   at: string;
 }
 
-export type OrderKind = "insurance" | "road_tax" | "puspakom" | "permit";
+export type OrderKind = "insurance" | "road_tax" | "puspakom" | "permit" | "audit_icop";
 export type OrderStatus = "pending" | "done";
 
 export interface IncomingOrder {

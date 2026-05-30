@@ -3,10 +3,11 @@ import { google } from "googleapis";
 import { listOrders } from "./queries";
 
 const KIND_LABELS: Record<string, string> = {
-  insurance: "保险",
-  road_tax:  "JPJ路税",
-  puspakom:  "Puspakom",
-  permit:    "APAD",
+  insurance:  "保险",
+  road_tax:   "JPJ路税",
+  puspakom:   "Puspakom",
+  permit:     "APAD",
+  audit_icop: "AUDIT ICOP",
 };
 
 const STATUS_LABELS: Record<string, string> = {
@@ -127,7 +128,8 @@ async function applyFormatting(sheets: SheetsClient, spreadsheetId: string): Pro
     { value: "保险",     bg: { red: 0.85, green: 0.92, blue: 1.00 } },
     { value: "JPJ路税",  bg: { red: 0.83, green: 0.97, blue: 0.85 } },
     { value: "Puspakom", bg: { red: 1.00, green: 0.95, blue: 0.78 } },
-    { value: "APAD",     bg: { red: 0.93, green: 0.84, blue: 1.00 } },
+    { value: "APAD",       bg: { red: 0.93, green: 0.84, blue: 1.00 } },
+    { value: "AUDIT ICOP", bg: { red: 1.00, green: 0.80, blue: 0.80 } },
   ];
   for (const k of kindColors) {
     requests.push({

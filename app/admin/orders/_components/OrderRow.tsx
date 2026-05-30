@@ -5,17 +5,19 @@ import { useRouter } from "next/navigation";
 import type { IncomingOrder } from "@/lib/supabase/types";
 
 const KIND_LABELS: Record<string, string> = {
-  insurance: "保险",
-  road_tax:  "JPJ路税",
-  puspakom:  "Puspakom",
-  permit:    "APAD",
+  insurance:  "保险",
+  road_tax:   "JPJ路税",
+  puspakom:   "Puspakom",
+  permit:     "APAD",
+  audit_icop: "AUDIT ICOP",
 };
 
 const KIND_BG: Record<string, string> = {
-  insurance: "bg-blue-100 text-blue-800",
-  road_tax:  "bg-green-100 text-green-800",
-  puspakom:  "bg-yellow-100 text-yellow-800",
-  permit:    "bg-purple-100 text-purple-800",
+  insurance:  "bg-blue-100 text-blue-800",
+  road_tax:   "bg-green-100 text-green-800",
+  puspakom:   "bg-yellow-100 text-yellow-800",
+  permit:     "bg-purple-100 text-purple-800",
+  audit_icop: "bg-red-100 text-red-800",
 };
 
 export default function OrderRow({ order }: { order: IncomingOrder }) {

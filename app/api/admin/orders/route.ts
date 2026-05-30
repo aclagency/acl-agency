@@ -5,7 +5,7 @@ import { syncOrdersToSheetAsync } from "@/lib/orders/sheets";
 import type { OrderKind } from "@/lib/supabase/types";
 
 const AUTH_TOKEN = "acl-cms-v1";
-const ALLOWED_KINDS: OrderKind[] = ["insurance", "road_tax", "puspakom", "permit"];
+const ALLOWED_KINDS: OrderKind[] = ["insurance", "road_tax", "puspakom", "permit", "audit_icop"];
 
 export async function POST(req: NextRequest) {
   const cookieStore = await cookies();

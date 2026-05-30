@@ -6,10 +6,11 @@ import { listOrders } from "@/lib/orders/queries";
 const AUTH_TOKEN = "acl-cms-v1";
 
 const KIND_LABELS: Record<string, string> = {
-  insurance: "保险",
-  road_tax:  "JPJ路税",
-  puspakom:  "Puspakom",
-  permit:    "APAD",
+  insurance:  "保险",
+  road_tax:   "JPJ路税",
+  puspakom:   "Puspakom",
+  permit:     "APAD",
+  audit_icop: "AUDIT ICOP",
 };
 
 const STATUS_LABELS: Record<string, string> = {
